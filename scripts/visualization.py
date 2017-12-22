@@ -61,8 +61,8 @@ class Visualization():
         # define other joint ids
         head_id = 3
 
-		# for the demonstration, I am just using one person recorded data
-		# however, it can be supplied here in real-time accquired using Kinect etc
+        # for the demonstration, I am just using one person recorded data
+        # however, it can be supplied here in real-time accquired using Kinect etc
         skeleton_joints = np.loadtxt(file_name, delimiter=',', skiprows=1)
         bodies = [skeleton_joints.tolist()]
 
@@ -73,7 +73,7 @@ class Visualization():
             marker_array = MarkerArray()
 
             for body in bodies:
-				now = rospy.Time.now()
+                now = rospy.Time.now()
 
                 marker_index += 1
                 upper_body = self.create_marker(marker_index, colors[person_index], Marker.LINE_STRIP, skeleton_line_width, now, skeleton_frame)
