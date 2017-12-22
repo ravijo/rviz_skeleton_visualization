@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+visualization.launch: Rviz visualization
+Author: Ravi Joshi
+Date: 2017/12/21
+-->
+<launch>
+  <arg name="file"  default="$(find rviz_skeleton_visualization)/files/skeleton_joints.csv" />
+  <node name="visualization" pkg="rviz_skeleton_visualization" type="visualization.py" output="screen">
+    <param name="file" value="$(arg file)" />
+  </node>
+  <!-- visualization -->
+    <node pkg="rviz" type="rviz" respawn="false" name="rviz" args="-d $(find rviz_skeleton_visualization)/files/visualization.rviz"/>
+</launch>
