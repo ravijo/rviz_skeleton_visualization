@@ -73,7 +73,9 @@ class Visualization():
             marker_array = MarkerArray()
 
             for body in bodies:
-                now = rospy.Time.now()
+				now = rospy.Time.now()
+
+                marker_index += 1
                 upper_body = self.create_marker(marker_index, colors[person_index], Marker.LINE_STRIP, skeleton_line_width, now, skeleton_frame)
 
                 marker_index += 1
