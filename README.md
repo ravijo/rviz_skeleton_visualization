@@ -11,6 +11,7 @@ Demonstration of Skeleton visualization in RVIZ
 1. Make the scripts executable by running following commands-
      1. [visualization.py](scripts/visualization.py): `chmod +x ~/ros_ws/src/rviz_skeleton_visualization/scripts/visualization.py`
      1. [realtime_visualization.py](scripts/realtime_visualization.py): `chmod +x  ~/ros_ws/src/rviz_skeleton_visualization/scripts/realtime_visualization.py`
+
 In above commands, please note that ROS workspace is located inside` $HOME`. You may have to change the above command accordingly.
 
 ## Steps to run
