@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+realtime_visualization.launch: Realtime skeleton visualization
+Note: Keep running this file in a separate tab forever
+Requirements: Make sure that kinect_anywhere (https://github.com/ravijo/kinect_anywhere) is configured properly and running.
+Author: Ravi Joshi
+Date: 2018/02/07
+-->
+<launch>
+  <!-- body topic -->
+  <arg name="body_topic" default="/kinect_anywhere/body_frame/bodies"/>
+  <arg name="skeleton_frame" default="base"/>
+  <arg name="body_id_text_size" default="0.2"/>
+  <arg name="skeleton_line_width" default="0.02"/>
+
+  <node name="realtime_visualization" pkg="rviz_skeleton_visualization" type="realtime_visualization.py" output="screen">
+    <param name="body_topic" value="$(arg body_topic)"/>
+    <param name="skeleton_frame" value="$(arg skeleton_frame)"/>
+    <param name="body_id_text_size" value="$(arg body_id_text_size)"/>
+    <param name="skeleton_line_width" value="$(arg skeleton_line_width)"/>
+  </node>
+
+  <!-- visualization -->
+  <node pkg="rviz" type="rviz" respawn="false" name="rviz" args="-d $(find rviz_skeleton_visualization)/files/realtime_visualization.rviz"/>
+</launch>
