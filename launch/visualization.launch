@@ -5,7 +5,7 @@ Author: Ravi Joshi
 Date: 2017/12/21
 -->
 <launch>
-  <arg name="file"  default="$(find rviz_skeleton_visualization)/files/skeleton_joints.json" />
+  <arg name="file"  default="$(find rviz_skeleton_visualization)/files/skeleton_joints.yml" />
   <node name="visualization" pkg="rviz_skeleton_visualization" type="visualization.py" output="screen">
     <param name="file" value="$(arg file)" />
   </node>

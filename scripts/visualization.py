@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*-
 
 # visualization.py: code for skeleton visualizatio.
-#                   skeleton info is taken from json file.
+#                   skeleton info is taken from yaml file.
 # Author: Ravi Joshi
 # Date: 2017/12/21
 # Modified on: 2018/11/27
 
 # import modules
-import json
+import yaml
 import rospy
 from std_msgs.msg import ColorRGBA
 from geometry_msgs.msg import Vector3, Point
@@ -71,9 +71,9 @@ def read_skeleton_file(file_name):
                    'WristLeft': 6,
                    'WristRight': 10}
 
-    # read json file as a dictionary
-    with open(file_name) as json_file:
-        joints = json.load(json_file)
+    # read yaml file as a dictionary
+    with open(file_name) as yaml_file:
+        joints = yaml.load(yaml_file)
 
     # sort joints based on joint id
     joint_list = [None] * len(joints_info)
@@ -109,6 +109,7 @@ class Visualization():
 
         # for the demonstration, I am just using one person recorded data
         # however, it can be supplied here in real-time accquired using Kinect etc
+        # see 'realtime_visualization.py' for more info
         skeleton_joints = read_skeleton_file(file_name)
         bodies = [skeleton_joints]
 
