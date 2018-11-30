@@ -6,8 +6,10 @@ Date: 2017/12/21
 -->
 <launch>
   <arg name="file"  default="$(find rviz_skeleton_visualization)/files/skeleton_joints.yml" />
+  <arg name="frame" default="base"/>
   <node name="visualization" pkg="rviz_skeleton_visualization" type="visualization.py" output="screen">
     <param name="file" value="$(arg file)" />
+    <param name="skeleton_frame" value="$(arg frame)"/>
   </node>
   <!-- visualization -->
     <node pkg="rviz" type="rviz" respawn="false" name="rviz" args="-d $(find rviz_skeleton_visualization)/files/visualization.rviz"/>

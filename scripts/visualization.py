@@ -204,11 +204,13 @@ class Visualization():
 if __name__ == '__main__':
     # define some constants
     ns = 'visualization'
-    skeleton_frame = 'base'
     body_id_text_size = 0.2
     skeleton_line_width = 0.02
 
     # initialize ros node
     rospy.init_node(ns, anonymous=True)
+    file_name = rospy.get_param('~file')
+    skeleton_frame = rospy.get_param('~skeleton_frame')
+
     Visualization(ns, skeleton_frame, body_id_text_size,
-                  skeleton_line_width, rospy.get_param('~file'))
+                  skeleton_line_width, file_name)

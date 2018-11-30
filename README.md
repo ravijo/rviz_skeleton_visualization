@@ -1,6 +1,8 @@
 # rviz_skeleton_visualization
 Demonstration of Skeleton visualization in RVIZ
 
+![RViz Screenshot](files/rviz.png)
+
 ## Package Dependencies
 1. [rviz](http://wiki.ros.org/rviz): It is used for visualization
 1. [kinect_anywhere](https://github.com/ravijo/kinect_anywhere): It is used to obtain Kinect data for real time visualization. No need to install if you don't want to run `realtime_visualization.launch`

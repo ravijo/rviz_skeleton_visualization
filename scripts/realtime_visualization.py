@@ -95,20 +95,47 @@ class RealtimeVisualization():
                 now = rospy.Time.now()
 
                 marker_index += 1
-                upper_body = self.create_marker(marker_index, self.colors[person_index], Marker.LINE_STRIP, self.skeleton_line_width, now, self.skeleton_frame)
+                upper_body = self.create_marker(
+                    marker_index,
+                    self.colors[person_index],
+                    Marker.LINE_STRIP,
+                    self.skeleton_line_width,
+                    now,
+                    self.skeleton_frame)
 
                 marker_index += 1
-                hands = self.create_marker(marker_index, self.colors[person_index], Marker.LINE_STRIP, self.skeleton_line_width, now, self.skeleton_frame)
+                hands = self.create_marker(
+                    marker_index,
+                    self.colors[person_index],
+                    Marker.LINE_STRIP,
+                    self.skeleton_line_width,
+                    now,
+                    self.skeleton_frame)
 
                 marker_index += 1
-                legs = self.create_marker(marker_index, self.colors[person_index], Marker.LINE_STRIP, self.skeleton_line_width, now, self.skeleton_frame)
+                legs = self.create_marker(
+                    marker_index,
+                    self.colors[person_index],
+                    Marker.LINE_STRIP,
+                    self.skeleton_line_width,
+                    now,
+                    self.skeleton_frame)
 
-                upper_body.points = [body.jointPositions[id].position for id in self.upper_body_ids]
-                hands.points = [body.jointPositions[id].position for id in self.hands_ids]
-                legs.points = [body.jointPositions[id].position for id in self.legs_ids]
+                upper_body.points = [
+                    body.jointPositions[id].position for id in self.upper_body_ids]
+                hands.points = [
+                    body.jointPositions[id].position for id in self.hands_ids]
+                legs.points = [
+                    body.jointPositions[id].position for id in self.legs_ids]
 
                 marker_index += 1
-                head_id_marker = self.create_marker(marker_index, self.body_id_color, Marker.TEXT_VIEW_FACING, self.body_id_text_size, now, self.skeleton_frame)
+                head_id_marker = self.create_marker(
+                    marker_index,
+                    self.body_id_color,
+                    Marker.TEXT_VIEW_FACING,
+                    self.body_id_text_size,
+                    now,
+                    self.skeleton_frame)
                 head_id_marker.text = str(person_index)
                 head_id_marker.pose.position = body.jointPositions[self.head_id].position
 
@@ -123,6 +150,7 @@ class RealtimeVisualization():
     def __del__(self):
         self.skeleton_pub.unregister()
 
+
 if __name__ == '__main__':
     # define some constants
     ns = 'realtime_visualization'
@@ -134,4 +162,5 @@ if __name__ == '__main__':
     body_id_text_size = rospy.get_param('~body_id_text_size')
     skeleton_line_width = rospy.get_param('~skeleton_line_width')
 
-    RealtimeVisualization(ns, body_topic, skeleton_frame, body_id_text_size, skeleton_line_width)
+    RealtimeVisualization(ns, body_topic, skeleton_frame,
+                          body_id_text_size, skeleton_line_width)
