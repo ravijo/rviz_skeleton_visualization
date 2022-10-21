@@ -8,7 +8,7 @@ Demonstration of Skeleton visualization in RVIZ
 1. [kinect_anywhere](https://github.com/ravijo/kinect_anywhere): It is used to obtain Kinect data for real time visualization. No need to install if you don't want to run `realtime_visualization.launch`
 
 ## Steps to compile
-1. Make sure to download compelte repository. Use `git clone` or download directory as per convenience
+1. Make sure to download complete repository. Use `git clone` or download directory as per convenience
 1. Invoke `catkin` tool while inside ros workspace i.e., `catkin_make`
 1. Make the scripts executable by running following commands-
      1. [visualization.py](scripts/visualization.py): `chmod +x ~/ros_ws/src/rviz_skeleton_visualization/scripts/visualization.py`
